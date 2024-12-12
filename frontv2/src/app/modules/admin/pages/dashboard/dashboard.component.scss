@@ -1,0 +1,170 @@
+// Variables para los colores proporcionados
+$red1: #A60D40;
+$red2: #890A34;
+$red3: #3E0000;
+$orange1: #FF6633;
+$orange2: #E95725;
+$yellow1: #FFFF00;
+$yellow2: #ffee00;
+$dark-bg: #2c3e50;
+$light-bg: #ecf0f1;
+$text-color: #34495e;
+$card-bg: #fff;
+
+// General Reset
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: $light-bg;
+  color: $text-color;
+  display: flex;
+  min-height: 100vh;
+}
+
+// Dashboard Container
+.admin-dashboard {
+  display: flex;
+  height: 100vh;
+}
+
+// Sidebar
+.sidebar {
+  width: 250px;
+  background-color: $red1; // Color rojo de fondo
+  color: white;
+  padding: 20px;
+  position: fixed;
+  height: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+
+  .sidebar-header {
+    text-align: center;
+    margin-bottom: 30px;
+    h2 {
+      font-size: 24px;
+      color: $yellow1; // Usamos amarillo para el texto del título
+    }
+  }
+
+  .sidebar-menu {
+    list-style-type: none;
+    padding-left: 0;
+
+    li {
+      margin: 20px 0;
+      
+      a {
+        color: white;
+        text-decoration: none;
+        font-size: 18px;
+        &:hover {
+          color: $orange1; // Naranja para el hover
+        }
+      }
+    }
+  }
+}
+
+// Main Content
+.main-content {
+  margin-left: 250px;
+  padding: 20px;
+  width: 100%;
+  background-color: $light-bg;
+
+  header {
+    h1 {
+      font-size: 32px;
+      margin-bottom: 20px;
+      color: $dark-bg;
+    }
+  }
+
+  .cards {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 40px;
+
+    .card {
+      background-color: $card-bg;
+      padding: 20px;
+      width: 30%;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      text-align: center;
+      
+      h3 {
+        font-size: 24px;
+        margin-bottom: 10px;
+        color: $dark-bg;
+      }
+
+      p {
+        font-size: 28px;
+        color: $orange2; // Usamos un naranja más oscuro para los números
+      }
+
+      &:hover {
+        background-color: $red2; // Rojo más oscuro en hover
+        color: white;
+      }
+    }
+  }
+
+  .recent-activities {
+    background-color: $card-bg;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    h2 {
+      margin-bottom: 20px;
+      font-size: 24px;
+      color: $dark-bg;
+    }
+
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+
+      li {
+        margin: 10px 0;
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+// Media Query for mobile responsiveness
+@media (max-width: 768px) {
+  .admin-dashboard {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+
+  .main-content {
+    margin-left: 0;
+  }
+
+  .cards {
+    flex-direction: column;
+    gap: 20px;
+    .card {
+      width: 100%;
+    }
+  }
+}

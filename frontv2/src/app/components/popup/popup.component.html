@@ -1,0 +1,8 @@
+<!-- src/app/components/popup/popup.component.html -->
+<div *ngIf="isVisible" class="popup-overlay" (click)="closePopup()">
+  <div class="popup-content" (click)="$event.stopPropagation()">
+    <ng-content></ng-content>
+    <!-- Aquí se inyectará el contenido dinámico -->
+    <button class="popup-close" (click)="closePopup()">X</button>
+  </div>
+</div>

@@ -1,0 +1,382 @@
+/* Variables de color mejoradas */
+$primary-dark: #121212; /* Fondo más oscuro */
+$secondary-dark: #1f1f1f;
+$accent-dark: #2a2a2a;
+$highlight-color: #4caf50; /* Verde más brillante */
+$highlight-light: #66bb6a; /* Verde claro para hover */
+$text-light: #f1f1f1; /* Blanco suave para texto */
+$text-dark: #333; /* Texto oscuro para áreas claras */
+$text-muted: #b0b0b0; /* Texto secundario */
+$border-dark: #444; /* Bordes oscuros */
+$hover-dark: #3c3c3c; /* Efecto hover más suave */
+$shadow-color: rgba(0, 0, 0, 0.4); /* Sombra más suave */
+
+/* Estilos generales */
+body {
+  background-color: $primary-dark;
+  color: $text-light;
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Contenedor de categorías */
+.categories-container {
+  margin: 20px;
+  padding: 10px;
+}
+
+/* Estilos de la tabla */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: $secondary-dark;
+  color: $text-light;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px $shadow-color;
+  margin-top: 20px;
+}
+
+.table th,
+.table td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid $border-dark;
+}
+
+.table th {
+  background-color: $accent-dark;
+  color: $text-light;
+  font-weight: bold;
+}
+
+.table tr:hover {
+  background-color: $hover-dark;
+}
+
+.table td {
+  font-size: 14px;
+  color: $text-light;
+}
+
+/* Botón para crear producto */
+.btn-create {
+  background-color: $highlight-color;
+  color: #fff;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 8px $shadow-color;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.btn-create:hover {
+  background-color: $highlight-light;
+}
+
+/* Estilos de los botones de acción (Ver, Editar, Eliminar) */
+.btn-action {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin: 0 5px;
+  font-size: 14px;
+  box-shadow: 0 3px 6px $shadow-color;
+}
+
+/* Botón de ver */
+.btn-view {
+  background-color: #2196f3;
+  color: #fff;
+}
+
+.btn-view:hover {
+  background-color: darken(#2196f3, 10%);
+}
+
+/* Botón de editar */
+.btn-edit {
+  background-color: #ff9800;
+  color: #000;
+}
+
+.btn-edit:hover {
+  background-color: darken(#ff9800, 10%);
+}
+
+/* Botón de eliminar */
+.btn-delete {
+  background-color: #f44336;
+  color: #fff;
+}
+
+.btn-delete:hover {
+  background-color: darken(#f44336, 10%);
+}
+
+/* Estilos del formulario */
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  color: $text-light;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.input-field {
+  width: 100%;
+  padding: 12px;
+  background-color: $secondary-dark;
+  color: $text-light;
+  border: 1px solid $border-dark;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+.input-field:focus {
+  border-color: $highlight-color;
+  outline: none;
+}
+
+select.input-field {
+  background-color: $secondary-dark;
+  border-color: $border-dark;
+  color: $text-light;
+  font-size: 16px;
+}
+
+/* Acciones del formulario */
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+}
+
+.btn-submit {
+  background-color: $highlight-color;
+  color: #fff;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.btn-submit:hover {
+  background-color: $highlight-light;
+}
+
+.btn-cancel {
+  background-color: $accent-dark;
+  margin: 2px 4px;
+  color: $text-light;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.btn-cancel:hover {
+  background-color: $hover-dark;
+}
+
+/* Estilos del contenido dentro del popup */
+.view-details p {
+  color: $text-light;
+  font-size: 18px;
+  margin: 12px 0;
+}
+
+.delete-confirm p {
+  color: $text-light;
+  font-size: 18px;
+  margin: 12px 0;
+}
+
+/* .delete-confirm button {
+  background-color: #f44336;
+  color: #fff;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+} */
+.selec {
+  color: #000;
+}
+/* .delete-confirm button:hover {
+  background-color: darken(#f44336, 10%);
+} */
+
+hr {
+  height: 2px;
+  background-color: #121212;
+}
+
+/* Estilos generales para el popup */
+
+/* Título del popup */
+.popup-form h2 {
+  color: $highlight-color;
+  margin-bottom: 20px;
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Estilos para los formularios */
+form div {
+  margin-bottom: 15px;
+}
+
+label {
+  //color: $text-light;
+  color: #000;
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 8px;
+  display: block;
+}
+
+/* Estilos de los inputs */
+input {
+  width: 100%;
+  padding: 12px;
+  background-color: $secondary-dark;
+  color: $text-light;
+  border: 1px solid $border-dark;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+select {
+  width: 100%;
+  padding: 12px;
+  //background-color: $secondary-dark;
+  color: black;
+  border: 1px solid $border-dark;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+input:focus,
+select:focus {
+  border-color: $highlight-color;
+  outline: none;
+}
+
+button[type="submit"] {
+  background-color: $highlight-color;
+  color: #fff;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 100%;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 8px $shadow-color;
+}
+
+button[type="submit"]:hover {
+  background-color: $highlight-light;
+}
+
+/* Estilo de los botones adicionales */
+button[type="button"] {
+  background-color: $accent-dark;
+  color: $text-light;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 100%;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+button[type="button"]:hover {
+  background-color: $hover-dark;
+}
+
+/* Botones dentro del popup de eliminación */
+button:disabled {
+  background-color: $border-dark;
+  cursor: not-allowed;
+}
+
+/* Asegurar que el contenido del popup sea cómodo para el usuario */
+.fondo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.view-details p,
+.delete-confirm p {
+  //color: $text-light;
+  font-size: 18px;
+  margin: 12px 0;
+  color: #000;
+}
+
+/* Estilo para el contenedor del popup cuando está oculto */
+/* .app-popup {
+  display: none;
+  &.visible {
+    display: block;
+  }
+} */
+
+.btn-delete-confirm {
+  margin: 2px 4px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #f44336;
+  cursor: pointer;
+  color: $text-light;
+  width: 45%;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-delete-cancel {
+  margin: 2px 4px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #444;
+  cursor: pointer;
+  color: $text-light;
+  width: 45%;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+/* .delete-confirm button {
+  background-color: #f44336;
+  color: #fff;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+} */
+
+.btn-delete-confirm:hover {
+  background-color: darken(#f44336, 10%);
+}

@@ -1,0 +1,20 @@
+<div class="layout">
+  <header>
+    <h1>Bienvenido a nuestra tienda</h1>
+    <nav>
+      <ul>
+        <li><a routerLink="/" routerLinkActive="active">Landing</a></li>
+        <li><a routerLink="/home" routerLinkActive="active">Home</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="content">
+    <router-outlet></router-outlet>
+    <!-- Aquí se renderizan las rutas hijas -->
+  </div>
+
+  <footer>
+    <p>© 2024 Nuestra Tienda</p>
+  </footer>
+</div>

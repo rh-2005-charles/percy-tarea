@@ -1,0 +1,113 @@
+// Variables para colores oscuros
+$primary-dark: #1b1b1b;
+$secondary-dark: #2c2c2c;
+$accent-dark: #3d3d3d;
+$highlight-color: #4caf50; // Verde para resaltar
+$text-light: #e0e0e0;
+$text-muted: #a0a0a0;
+$border-dark: #444;
+$hover-dark: #555;
+$shadow-color: rgba(0, 0, 0, 0.6);
+
+// General Reset
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  background-color: $primary-dark;
+  color: $text-light;
+  display: flex;
+  min-height: 100vh;
+}
+
+// Dashboard Container
+.admin-dashboard {
+  display: flex;
+  height: 100vh;
+}
+
+// Sidebar
+.sidebar {
+  width: 250px;
+  background-color: $secondary-dark; // Fondo oscuro para la barra lateral
+  color: $text-light;
+  padding: 20px;
+  position: fixed;
+  height: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid $border-dark;
+
+  .sidebar-header {
+    text-align: center;
+    margin-bottom: 30px;
+
+    h2 {
+      font-size: 24px;
+      color: $highlight-color; // Verde para resaltar el título
+    }
+  }
+
+  .sidebar-menu {
+    list-style-type: none;
+    padding-left: 0;
+
+    li {
+      margin: 20px 0;
+
+      a {
+        color: $text-light;
+        text-decoration: none;
+        font-size: 18px;
+        padding: 10px;
+        border-radius: 5px;
+        display: block;
+        transition: background-color 0.3s, color 0.3s;
+
+        &:hover {
+          background-color: $hover-dark; // Fondo en hover
+          color: $highlight-color; // Verde para el texto en hover
+        }
+      }
+    }
+  }
+}
+
+// Main Content
+.main-content {
+  margin-left: 250px;
+  padding: 20px;
+  width: 100%;
+  //background-color: $primary-dark;
+
+  header {
+    h1 {
+      font-size: 32px;
+      margin-bottom: 20px;
+      color: $highlight-color; // Verde para resaltar
+    }
+  }
+}
+
+// Media Query for mobile responsiveness
+@media (max-width: 768px) {
+  .admin-dashboard {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+
+  .main-content {
+    margin-left: 0;
+  }
+}

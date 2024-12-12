@@ -1,0 +1,149 @@
+<div class="categories-container">
+  <!-- Botón para crear nuevo producto -->
+  <button class="btn-create" (click)="showPopup('create')">
+    Crear Producto
+  </button>
+
+  <hr />
+  <!-- Lista de productos -->
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Descripción</th>
+        <th>Precio</th>
+        <th>Categoria</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of tableData">
+        <td>{{ product.id }}</td>
+        <td>{{ product.nombre }}</td>
+        <td>{{ product.descripcion }}</td>
+        <td>{{ product.precio }}</td>
+        <!-- <td>{{ product.categoriaId }}</td> -->
+        <td>{{ getCategoryNameById(product.categoriaId) }}</td>
+        <td>
+          <button
+            class="btn-action btn-view"
+            (click)="showPopup('view', product)"
+          >
+            Ver
+          </button>
+          <button
+            class="btn-action btn-edit"
+            (click)="showPopup('edit', product)"
+          >
+            Editar
+          </button>
+          <button
+            class="btn-action btn-delete"
+            (click)="showPopup('delete', product)"
+          >
+            Eliminar
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="fondo">
+    <!-- Popup para formulario y acciones -->
+    <app-popup
+      [isVisible]="isPopupVisible"
+      (close)="hidePopup()"
+      class="popup-form"
+    >
+      <h2>{{ popupTitle }}</h2>
+
+      <!-- Formulario de Crear/Editar -->
+      <form
+        *ngIf="actionType === 'create' || actionType === 'edit'"
+        [formGroup]="form"
+        (ngSubmit)="onSubmit()"
+      >
+        <div>
+          <label for="name">Nombre:</label>
+          <input
+            id="name"
+            formControlName="name"
+            type="text"
+            placeholder="Escribe su nombre"
+          />
+        </div>
+        <div>
+          <label for="description">Descripción:</label>
+          <input
+            id="description"
+            formControlName="description"
+            type="text"
+            placeholder="Escribe su descripcion"
+          />
+        </div>
+        <div>
+          <label for="price">Precio:</label>
+          <input
+            id="price"
+            formControlName="price"
+            type="number"
+            placeholder="Escribe su precio"
+          />
+        </div>
+        <div>
+          <label for="categoryId">Categoría:</label>
+          <select id="categoryId" formControlName="categoryId">
+            <option class="selec" value="" disabled selected>
+              Selecciona una categoría
+            </option>
+            <option *ngFor="let category of categories" [value]="category.id">
+              {{ category.nombre }}
+            </option>
+          </select>
+        </div>
+
+        <button
+          type="submit"
+          [disabled]="!form.valid || createState === 'loading'"
+        >
+          {{ actionType === "edit" ? "Actualizar" : "Crear" }}
+        </button>
+        <button type="button" (click)="hidePopup()">Cancelar</button>
+      </form>
+
+      <!-- Detalles del Producto -->
+      <div *ngIf="actionType === 'view'" class="view-details">
+        <p><strong>Nombre:</strong> {{ selectedProduct?.nombre }}</p>
+        <p><strong>Descripción:</strong> {{ selectedProduct?.descripcion }}</p>
+        <p><strong>Precio:</strong> {{ selectedProduct?.precio }}</p>
+        <!-- <p><strong>Categoria:</strong> {{ selectedProduct?.categoriaId }}</p> -->
+        <p>
+          <strong>Categoria:</strong>
+          {{ getCategoryNameById(selectedProduct?.categoriaId || 0) }}
+        </p>
+
+        <button type="button" (click)="hidePopup()">Cerrar</button>
+      </div>
+
+      <!-- Confirmación de Eliminación -->
+      <div *ngIf="actionType === 'delete'" class="delete-confirm">
+        <p>
+          ¿Estás seguro de que deseas eliminar el producto "{{
+            selectedProduct?.nombre
+          }}"?
+        </p>
+        <button
+          type="buttonn"
+          class="btn-delete-confirm"
+          (click)="confirmDelete()"
+          [disabled]="createState === 'loading'"
+        >
+          Eliminar
+        </button>
+        <button class="btn-delete-cancel" (click)="hidePopup()">
+          Cancelar
+        </button>
+      </div>
+    </app-popup>
+  </div>
+</div>
